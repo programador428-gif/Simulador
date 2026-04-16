@@ -1,70 +1,163 @@
+/* Reset y Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    margin: 0;
-    padding: 0;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  background-color: #f8fafc; /* Gris muy claro empresarial */
+  color: #1e293b;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  line-height: 1.5;
 }
 
 .container {
-    width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 500px;
+  margin-top: 20px;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: -0.025em;
+}
+
+/* Estilo de Tarjeta (Card) para las secciones */
+.card-section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0; /* Borde fino sutil */
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    margin-top: 20px;
-    font-size: 18px;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
+h2::before {
+  content: "";
+  width: 4px;
+  height: 16px;
+  background-color: #2563eb; /* Acento azul empresarial */
+  border-radius: 2px;
+}
+
+/* Formulario */
 label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #334155;
 }
 
 input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  margin-bottom: 16px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background-color: #fcfcfd;
 }
 
+/* Resalte de Focus solicitado */
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); /* Glow suave azul */
+}
+
+/* Visualización de resultados dentro de las cards */
 p {
-    margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  padding: 8px 0;
+  border-bottom: 1px dashed #f1f5f9;
+}
+
+p:last-of-type {
+  border-bottom: none;
 }
 
 span {
-    font-weight: bold;
-    color: #2c3e50;
+  font-weight: 700;
+  color: #0f172a;
 }
 
+/* Botones con jerarquía visual */
 .buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
 }
 
 button {
-    width: 48%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #3498db;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+  flex: 1;
+  height: 52px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
 }
 
-button:hover {
-    background-color: #2980b9;
+/* Botón Calcular (Más peso visual) */
+#btnCalcularCredito {
+  background-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+#btnCalcularCredito:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+/* Botón Reiniciar (Menos peso, secundario) */
+#btnReiniciar {
+  background-color: #ffffff;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+#btnReiniciar:hover {
+  background-color: #f8fafc;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+button:active {
+  transform: translateY(0);
 }
