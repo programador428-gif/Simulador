@@ -5,3 +5,7 @@ export function calcularDisponible(ingresos, egresos) {
 export function calcularCapacidadPago(montoDisponible) {
   return montoDisponible * 0.5;
 }
+
+export function calcularInteresSimple(monto, tasa, plazaAnios) {
+  return monto * (tasa / 100) * plazaAnios;
+}
