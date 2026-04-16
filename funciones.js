@@ -9,3 +9,7 @@ export function calcularCapacidadPago(montoDisponible) {
 export function calcularInteresSimple(monto, tasa, plazoAnios) {
   return monto * (tasa / 100) * plazoAnios;
 }
+
+export function calcularTotalPagar(monto, interes) {
+  return monto + interes + 100;
+}
