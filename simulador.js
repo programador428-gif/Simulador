@@ -1,4 +1,4 @@
-import { calcularDisponible, calcularCapacidadPago, calcularInteresSimple, calcularTotalPagar, calcularCuotaMensual } from './funciones.js'
+import { calcularDisponible, calcularCapacidadPago, calcularInteresSimple, calcularTotalPagar, calcularCuotaMensual, analizarCredito, aprobarCredito } from './funciones.js'
 
 function calcular() {
   const ingresos = parseFloat(document.getElementById("txtIngresos").value) || 0;
@@ -12,12 +12,15 @@ function calcular() {
   let interesSimple = calcularInteresSimple(monto, interes, plazoAnios);
   let totalPagar = calcularTotalPagar(monto, interesSimple);
   let cuotaMensual = calcularCuotaMensual(totalPagar, plazoAnios);
+  let creditoAnalizado = analizarCredito(capacidad, cuotaMensual);
+  let mensajeFinal = aprobarCredito(creditoAnalizado);
 
   document.getElementById("lblDisponibleValor").textContent = disponible;
   document.getElementById("lblCapacidadValor").textContent = capacidad;
   document.getElementById("lblInteresValor").textContent = interesSimple;
   document.getElementById("lblTotalValor").textContent = totalPagar;
   document.getElementById("lblCuotaValor").textContent = cuotaMensual;
+  document.getElementById("spnEstadoCredito").textContent = mensajeFinal;
 }
 
 document.getElementById("btnCalcularCredito").addEventListener("click", calcular);

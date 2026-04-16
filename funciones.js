@@ -18,3 +18,11 @@ export function calcularCuotaMensual(total, plazoAnios) {
   let cuota = total / (plazoAnios * 12);
   return cuota.toFixed(2);
 }
+
+export function analizarCredito(capacidadPago, cuotaMensual) {
+  return capacidadPago > cuotaMensual ? true : false;
+}
+
+export function aprobarCredito(credito) {
+  return credito === true ? "CREDITO APROBADO" : "CREDITO RECHAZADO";
+}
