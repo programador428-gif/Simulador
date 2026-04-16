@@ -13,3 +13,8 @@ export function calcularInteresSimple(monto, tasa, plazoAnios) {
 export function calcularTotalPagar(monto, interes) {
   return monto + interes + 100;
 }
+
+export function calcularCuotaMensual(total, plazoAnios) {
+  let cuota = total / (plazoAnios * 12);
+  return cuota.toFixed(2);
+}
