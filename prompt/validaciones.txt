@@ -1,0 +1,16 @@
+ primer prompt: [
+  Agrega validaciones de JavaScript a mi simulador. Al hacer clic en el botón 'Calcular', verifica que:
+  Ningún campo esté vacío.
+  El monto sea mayor a 0.
+  El plazo sea un número válido.
+  Si hay un error, muestra un mensaje en rojo debajo de cada campo. Si todo está bien, realiza el cálculo. No cambies mi HTML ni mi CSS.
+]
+
+segundo prompt: [
+  Modifica el JavaScript para añadir límites reales:
+  El Monto no puede superar los $50,000.
+  El Plazo máximo es de 10 años.
+  Validación lógica: Si el usuario pide un crédito donde la cuota mensual es mayor a su Capacidad de pago, muestra un error que diga 
+  'Monto irreal para tus ingresos'.
+  Muestra estos mensajes en rojo debajo de cada campo. No cambies el HTML ni el CSS.
+]
