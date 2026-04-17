@@ -23,4 +23,21 @@ function calcular() {
   document.getElementById("spnEstadoCredito").textContent = mensajeFinal;
 }
 
+function reiniciar() {
+  document.getElementById("txtIngresos").value = "";
+  document.getElementById("txtEgresos").value = "";
+  document.getElementById("txtMonto").value = "";
+  document.getElementById("txtPlazo").value = "";
+  document.getElementById("txtTasaInteres").value = "";
+
+  document.getElementById("lblDisponibleValor").textContent = "0";
+  document.getElementById("lblCapacidadValor").textContent = "0";
+  document.getElementById("lblInteresValor").textContent = "0";
+  document.getElementById("lblTotalValor").textContent = "0";
+  document.getElementById("lblCuotaValor").textContent = "0";
+
+  document.getElementById("spnEstadoCredito").textContent = "ESPERANDO DATOS...";
+}
+
 document.getElementById("btnCalcularCredito").addEventListener("click", calcular);
+document.getElementById("btnReiniciar").addEventListener("click", reiniciar);
