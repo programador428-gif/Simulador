@@ -32,12 +32,14 @@ function calcular() {
   let validacionExitosa = true;
 
   const rawIngresos = document.getElementById("txtIngresos").value.trim();
-  const rawEgresos = document.getElementById("txtEgresos").value.trim();
+  const rawArriendo = document.getElementById("txtArriendo").value.trim();
+  const rawAlimentacion = document.getElementById("txtAlimentacion").value.trim();
+  const rawVarios = document.getElementById("txtVarios").value.trim();
   const rawMonto = document.getElementById("txtMonto").value.trim();
   const rawPlazo = document.getElementById("txtPlazo").value.trim();
   const rawTasa = document.getElementById("txtTasaInteres").value.trim();
 
-  const campos = { txtIngresos: rawIngresos, txtEgresos: rawEgresos, txtMonto: rawMonto, txtPlazo: rawPlazo, txtTasaInteres: rawTasa };
+  const campos = { txtIngresos: rawIngresos, txtArriendo: rawArriendo, txtAlimentacion: rawAlimentacion, txtVarios: rawVarios, txtMonto: rawMonto, txtPlazo: rawPlazo, txtTasaInteres: rawTasa };
   for (const id in campos) {
     if (campos[id] === "") {
       mostrarError(id, "Este campo es obligatorio.");
@@ -69,10 +71,15 @@ function calcular() {
 
   if (validacionExitosa) {
     const ingresos = parseFloat(rawIngresos);
-    const egresos = parseFloat(rawEgresos);
+    const arriendo = parseFloat(rawArriendo);
+    const alimentacion = parseFloat(rawAlimentacion);
+    const varios = parseFloat(rawVarios);
     const tasa = parseFloat(rawTasa);
 
-    let disponible = calcularDisponible(ingresos, egresos);
+    const totalGastos = arriendo + alimentacion + varios;
+    document.getElementById("lblTotalGastos").textContent = `$${totalGastos.toLocaleString()}`;
+
+    let disponible = calcularDisponible(ingresos, arriendo, alimentacion, varios);
     let capacidad = calcularCapacidadPago(disponible);
     let interesSimple = calcularInteresSimple(monto, tasa, plazo);
     let totalPagar = calcularTotalPagar(monto, interesSimple);
@@ -99,6 +106,7 @@ function reiniciar() {
   document.getElementById("lblInteresValor").textContent = "0";
   document.getElementById("lblTotalValor").textContent = "0";
   document.getElementById("lblCuotaValor").textContent = "0";
+  document.getElementById("lblTotalGastos").textContent = "0";
   document.getElementById("spnEstadoCredito").textContent = "ESPERANDO DATOS...";
 }
 

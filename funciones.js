@@ -1,5 +1,7 @@
-export function calcularDisponible(ingresos, egresos) {
-  return (ingresos - egresos) <= 0 ? 0 : ingresos - egresos;
+export function calcularDisponible(ingresos, ...egresos) {
+  let sumaEgresos = egresos.reduce((acc, actual) => acc + actual, 0);
+  let resultado = ingresos - sumaEgresos;
+  return resultado <= 0 ? 0 : resultado;
 }
 
 export function calcularCapacidadPago(montoDisponible) {
